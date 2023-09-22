@@ -99,6 +99,7 @@ module.exports.view = async function(req, res){
 module.exports.update = async (req, res) => {
     try {
         const id = req.body.productId; 
+        console.log(req.body);
         const found = await Product.findById(id);
         //check whether product exist or not
         if (!found) {
@@ -107,8 +108,7 @@ module.exports.update = async (req, res) => {
         // Update the product's quantity
         const updatedProduct = await Product.findByIdAndUpdate(
             id,
-            { quantity: req.body.quantity },
-            { name: req.body.name } 
+            { quantity: req.body.quantity,name: req.body.name }
         );
         return res.redirect('/ecommerce/home');
        

@@ -3,10 +3,12 @@ const express=require('express');
 const router=express.Router();
 
 
-/** ------------------ MAKING ROUTES------------------ **/
+/** ------------------ IMPORTING CONTROLLERS ------------------ **/
 //initalizing products controller
 const productsController=require('../../../controllers/api/v1/product_controller');
 
+
+/** ------------------ MAKING ROUTES------------------ **/
 //to get all the products
 router.get('/',productsController.products);
 
