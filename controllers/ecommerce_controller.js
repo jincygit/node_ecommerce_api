@@ -2,8 +2,8 @@
 const Product=require('../models/products');
 const mongoose = require('mongoose');
 
-/** ------------------ EXPORTING FUNCTIONS ------------------ **/
-
+/** ------------------ EXPORTING FUNCTIONS IN E#COMMERCE WEBSITE ------------------ **/
+//function for view homepage
 module.exports.home = async function(req, res){
     try {
         //fetch selected fields from db
@@ -20,15 +20,12 @@ module.exports.home = async function(req, res){
     }   
 }
 
-
+//function for create product
 module.exports.add = async function(req, res){
-    
     try{
+        //create product
         let itemTask = await Product.create(req.body);
-        //console.log(created_todo_task);
         if (req.xhr){
-            //post = await post.populate('user', 'name').execPopulate();
-
             return res.status(200).json({
                 data: {
                     itemTask: itemTask
@@ -45,10 +42,12 @@ module.exports.add = async function(req, res){
     }
 }
 
-
+//function for delete product
 module.exports.remove = async function(req, res){
     try {
+        //remove product
         const deletedProduct = await Product.findByIdAndDelete(req.body.delete_product_id);
+        //if product not found then
         if (!deletedProduct) {
             return res.status(404).json({
             error: 'Product not found',
@@ -68,14 +67,12 @@ module.exports.remove = async function(req, res){
     }
 }
 
-
+//function for view product details
 module.exports.view = async function(req, res){
     try {
-        console.log(req.params.id);
         if(req.params.id){
             // get project data based on od
             let productData = await Product.findById(req.params.id);
-            console.log(productData);
             if(productData){
                 return res.render('product_detail', {
                     title: "Project details",
@@ -98,12 +95,12 @@ module.exports.view = async function(req, res){
     }
 }
 
-
+//function for edit product
 module.exports.update = async (req, res) => {
     try {
         const id = req.body.productId; 
         const found = await Product.findById(id);
-
+        //check whether product exist or not
         if (!found) {
             return res.status(404).send({ message: 'Product not found' });
         }
@@ -114,7 +111,6 @@ module.exports.update = async (req, res) => {
             { name: req.body.name } 
         );
         return res.redirect('/ecommerce/home');
-
        
     } catch (error) {
         console.error(error);

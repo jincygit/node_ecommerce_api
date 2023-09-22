@@ -37,9 +37,9 @@
     let newProjectDom = function(project){
         return $(`<div class="col-lg-4 border-start custom-border" id="post-${project._id}">
         <div class="post-entry-1">
-            <a href="single-post.html"><img src="/images/post-landscape-5.jpg" alt="" class="img-fluid" style="height: 83px;width: 100%;"></a>
+            <a href=""><img src="/images/post-landscape-5.jpg" alt="" class="img-fluid" style="height: 83px;width: 100%;"></a>
             <div class="post-meta"><span>${project.author}</span></div>
-            <h2><a href="single-post.html">${project.name}</a></h2>
+            <h2><a href="">${project.name}</a></h2>
             <div class="form-group" style="margin: 0px 0px 14px 0px;">
                 <input type="submit" name="btnSubmit" class="btnContact" value="View Details" />
             </div>
