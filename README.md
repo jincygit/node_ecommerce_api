@@ -72,12 +72,15 @@ Here is the Technology Stack of this Application. which I have used to Built thi
 ### Access the Application:
    ## for frontend of ecommerce project
    http://localhost:8000/ecommerce/home
-   ## for backend API of ecommerce project
+   
 
 ### API Details:
     ## for create product
         -API to add products to the database
             -URL [POST]: /products/create
+            ```
+            http://localhost:8000/products/create
+            ```
                 //request
                     product: {
                     name: laptop,
@@ -93,10 +96,19 @@ Here is the Technology Stack of this Application. which I have used to Built thi
 
         -API to list products
             -URL [GET] : /products
+            ```
+            http://localhost:8000/products
+            ```
         - API to delete products
             -URL [DELETE] : /products/:id
+             ```
+            http://localhost:8000/products/650d8684b6165f5010e7c9ce
+            ```
         - API to update quantity of a product (can be incremented or decremented)
             -URL [POST] : /products/:id/update_quantity/?number=10
+             ```
+            http://localhost:8000/products/650d8684b6165f5010e7c9ce/update_quantity/?number=-10
+            ```
 
 
 

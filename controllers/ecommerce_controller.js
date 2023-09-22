@@ -99,7 +99,7 @@ module.exports.view = async function(req, res){
 module.exports.update = async (req, res) => {
     try {
         const id = req.body.productId; 
-        console.log(req.body);
+        //console.log(req.body);
         const found = await Product.findById(id);
         //check whether product exist or not
         if (!found) {
