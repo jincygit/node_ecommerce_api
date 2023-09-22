@@ -32,8 +32,13 @@ module.exports.create = async function(req, res) {
 //function to show the product
 module.exports.products = async function(req, res) {
     try {
-        //fetch selected fields from db
-        const products = await Product.find({}, 'id name quantity');
+        //fetch selected fields from db      
+        const products = await Product.find({},'id name quantity')
+            .select({
+                _id: 0, // Exclude the default _id field
+                //name: 1, // Include the name field as is
+                id: '$_id' //rename field name
+        });
         res.status(200).json({
             data:{
                 products: products
@@ -51,7 +56,7 @@ module.exports.delete = async function (req, res) {
     try {
         const _id = req.params.id; 
         //check if the id is a valid ObjectId
-        if (!mongoose.isValidObjectId(id)) {
+        if (!mongoose.isValidObjectId(_id)) {
             // Handle the case where id is not a valid ObjectId (e.g., send an error response)
             return res.status(400).json({
               error: 'Invalid product ID',
@@ -67,7 +72,7 @@ module.exports.delete = async function (req, res) {
 
         res.status(200).json({
             data:{
-                message:"Product Deleted"
+                message:"product Deleted"
             }
         })
     } catch (err) {
@@ -99,13 +104,20 @@ module.exports.updateQuantity = async (req, res) => {
             { quantity: newQty },
             { new: true } // This ensures that you get the updated product as a result
         );
+        //get product data
+        const products = await Product.findById(id,'id name quantity')
+            .select({
+                _id: 0, // Exclude the default _id field
+                //name: 1, // Include the name field as is
+                id: '$_id' //rename field name
+        });
 
         if (!updatedProduct) {
             return res.status(404).send({ message: 'Product not found' });
         }
 
         res.send({
-            product: updatedProduct,
+            product: products,
             message: 'Updated successfully'
         });
     } catch (error) {
