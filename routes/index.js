@@ -14,6 +14,8 @@ console.log('router loaded');
 /** ------------------ MAKING ROUTES TO CONTROLLERS------------------ **/
 // router.use('/csv_upload', require('./csv_upload'));
 router.use('/products', require('./api'));
+router.use('/ecommerce', require('./ecommerce'));
+
 
 
 /** ------------------ EXPORTING ROUTER ------------------ **/

@@ -1,0 +1,77 @@
+<main id="main">
+
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="hero-slider" class="hero-slider">
+      <div class="container-md" data-aos="fade-in">
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper sliderFeaturedPosts">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('/images/unicorn.jpg');">
+                    <div class="img-bg-inner">
+                      
+                    </div>
+                  </a>
+                </div>
+
+                
+              </div>
+              <div class="custom-swiper-button-next">
+                <span class="bi-chevron-right"></span>
+              </div>
+              <div class="custom-swiper-button-prev">
+                <span class="bi-chevron-left"></span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero Slider Section -->
+
+
+    <!-- ======= Edit Project Detail Start ======= -->
+    <section>
+      <div class="" style="">
+          <div class="d-flex justify-content-center row">
+              <div class="col-md-10">
+                  <div class="row p-2 bg-white border rounded" style="width: 1118px;margin-left: 2px;">
+                      <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="/images/purp.jpg"></div>
+                      <div class="col-md-6 mt-1">
+                          <form method="POST" action="/ecommerce/update" id="new-issues-form">
+                              <h5 style="    font-size: calc(1.3rem + .6vw);"><%= productData.name %></h5>
+                              <div class="d-flex flex-row">
+                                  <div class="ratings mr-2">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" value="<%= productData.name %>" placeholder="Your name *"  required/>
+                                    </div>
+                                  </div>
+                              </div>
+                              <input type="hidden" id="productId" name="productId" value="<%= productData._id %>">
+                              <div class="form-group">
+                                <input type="text" name="quantity" class="form-control" value="<%= productData.quantity %>" placeholder="Your Author *"  required/>
+                            </div>
+                              <div class="form-group">
+                                <input type="submit" name="btnSubmit" class="btnContact" value="Update product" />
+                            </div>
+                          </form>
+                          
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!-- ======= Edit Project Detail End ======= -->
+
+
+    
+
+
+   
+    
+
+  </main><!-- End #main -->
